@@ -1,0 +1,21 @@
+apiVersion: v2
+type: application
+name: mautrix-whatsapp
+version: 0.0.1
+appVersion: 0.10.7
+annotations:
+  artifacthub.io/images: |
+    - name: whatsapp
+      image: dock.mau.dev/mautrix/whatsapp:v0.10.7
+description: A Matrix-whatsapp puppeting bridge.
+home: https://matrix.to/#/#whatsapp:maunium.net
+keywords:
+  - chat
+  - matrix
+  - whatsapp
+maintainers:
+  - email: loic.kalbermatter@pulseflow.ch
+    name: Loic Kalbermatter
+sources:
+  - https://github.com/mautrix/whatsapp
+  - https://code.pulseflow.ch/PulseDev/mautrix-whatsapp
