@@ -1,6 +1,6 @@
 # mautrix-whatsapp
 
-![Version: 0.0.1](https://img.shields.io/badge/Version-0.0.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.10.7](https://img.shields.io/badge/AppVersion-0.10.7-informational?style=flat-square)
+![Version: 0.0.2](https://img.shields.io/badge/Version-0.0.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.10.7](https://img.shields.io/badge/AppVersion-0.10.7-informational?style=flat-square)
 
 A Matrix-whatsapp puppeting bridge.
 
@@ -57,7 +57,7 @@ A Matrix-whatsapp puppeting bridge.
 | config.bridge.disable_bridge_alerts | bool | `false` |  |
 | config.bridge.disable_reply_fallbacks | bool | `false` |  |
 | config.bridge.disable_status_broadcast_send | bool | `true` |  |
-| config.bridge.displayname_template | string | `"{{or .BusinessName .PushName .JID}} (WA)"` |  |
+| config.bridge.displayname_template | string | `"{{ \"{{or .PushName .BusinessName .JID }} (WA)\" }}"` |  |
 | config.bridge.double_puppet_allow_discovery | bool | `false` |  |
 | config.bridge.double_puppet_server_map."example.com" | string | `"https://example.com"` |  |
 | config.bridge.enable_status_broadcast | bool | `true` |  |
@@ -136,14 +136,14 @@ A Matrix-whatsapp puppeting bridge.
 | config.bridge.provisioning.shared_secret | string | `"generate"` |  |
 | config.bridge.relay.admin_only | bool | `true` |  |
 | config.bridge.relay.enabled | bool | `false` |  |
-| config.bridge.relay.message_formats."m.audio" | string | `"<b>{{ .Sender.Displayname }}</b> sent an audio file"` |  |
-| config.bridge.relay.message_formats."m.emote" | string | `"* <b>{{ .Sender.Displayname }}</b> {{ .Message }}"` |  |
-| config.bridge.relay.message_formats."m.file" | string | `"<b>{{ .Sender.Displayname }}</b> sent a file"` |  |
-| config.bridge.relay.message_formats."m.image" | string | `"<b>{{ .Sender.Displayname }}</b> sent an image"` |  |
-| config.bridge.relay.message_formats."m.location" | string | `"<b>{{ .Sender.Displayname }}</b> sent a location"` |  |
-| config.bridge.relay.message_formats."m.notice" | string | `"<b>{{ .Sender.Displayname }}</b>: {{ .Message }}"` |  |
-| config.bridge.relay.message_formats."m.text" | string | `"<b>{{ .Sender.Displayname }}</b>: {{ .Message }}"` |  |
-| config.bridge.relay.message_formats."m.video" | string | `"<b>{{ .Sender.Displayname }}</b> sent a video"` |  |
+| config.bridge.relay.message_formats."m.audio" | string | `"{{\"<b>{{ .Sender.Displayname }}</b> sent an audio file\"}}"` |  |
+| config.bridge.relay.message_formats."m.emote" | string | `"{{\"* <b>{{ .Sender.Displayname }}</b> {{ .Message }}\"}}"` |  |
+| config.bridge.relay.message_formats."m.file" | string | `"{{\"<b>{{ .Sender.Displayname }}</b> sent a file\"}}"` |  |
+| config.bridge.relay.message_formats."m.image" | string | `"{{\"<b>{{ .Sender.Displayname }}</b> sent an image\"}}"` |  |
+| config.bridge.relay.message_formats."m.location" | string | `"{{\"<b>{{ .Sender.Displayname }}</b> sent a location\"}}"` |  |
+| config.bridge.relay.message_formats."m.notice" | string | `"{{\"<b>{{ .Sender.Displayname }}</b>: {{ .Message }}\"}}"` |  |
+| config.bridge.relay.message_formats."m.text" | string | `"{{\"<b>{{ .Sender.Displayname }}</b>: {{ .Message }}\"}}"` |  |
+| config.bridge.relay.message_formats."m.video" | string | `"{{\"<b>{{ .Sender.Displayname }}</b> sent a video\"}}"` |  |
 | config.bridge.resend_bridge_info | bool | `false` |  |
 | config.bridge.send_presence_on_typing | bool | `false` |  |
 | config.bridge.status_broadcast_tag | string | `"m.lowpriority"` |  |
@@ -152,7 +152,7 @@ A Matrix-whatsapp puppeting bridge.
 | config.bridge.tag_only_on_create | bool | `true` |  |
 | config.bridge.url_previews | bool | `false` |  |
 | config.bridge.user_avatar_sync | bool | `true` |  |
-| config.bridge.username_template | string | `"whatsapp_{{.}}"` |  |
+| config.bridge.username_template | string | `"whatsapp_{{ \"{{.}}\" }}"` |  |
 | config.bridge.whatsapp_thumbnail | bool | `false` |  |
 | config.homeserver.address | string | `"https://matrix.example.com"` |  |
 | config.homeserver.async_media | bool | `false` |  |

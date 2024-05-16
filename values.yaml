@@ -166,7 +166,7 @@ config:
   bridge:
     # Localpart template of MXIDs for WhatsApp users.
     # {{.}} is replaced with the phone number of the WhatsApp user.
-    username_template: whatsapp_{{.}}
+    username_template: 'whatsapp_{{ "{{.}}" }}'
     # Displayname template for WhatsApp users.
     # {{.PushName}}     - nickname set by the WhatsApp user
     # {{.BusinessName}} - validated WhatsApp business name
@@ -174,7 +174,7 @@ config:
     # The following variables are also available, but will cause problems on multi-user instances:
     # {{.FullName}}  - full name from contact list
     # {{.FirstName}} - first name from contact list
-    displayname_template: '{{or .BusinessName .PushName .JID}} (WA)'
+    displayname_template: '{{ "{{or .PushName .BusinessName .JID }} (WA)" }}'
     # Should the bridge create a space for each logged-in user and add bridged rooms to it?
     # Users who logged in before turning this on should run `!wa sync space` to create and fill the space for the first time.
     personal_filtering_spaces: false
@@ -513,14 +513,14 @@ config:
       admin_only: true
       # The formats to use when sending messages to WhatsApp via the relaybot.
       message_formats:
-        m.text: '<b>{{ .Sender.Displayname }}</b>: {{ .Message }}'
-        m.notice: '<b>{{ .Sender.Displayname }}</b>: {{ .Message }}'
-        m.emote: '* <b>{{ .Sender.Displayname }}</b> {{ .Message }}'
-        m.file: '<b>{{ .Sender.Displayname }}</b> sent a file'
-        m.image: '<b>{{ .Sender.Displayname }}</b> sent an image'
-        m.audio: '<b>{{ .Sender.Displayname }}</b> sent an audio file'
-        m.video: '<b>{{ .Sender.Displayname }}</b> sent a video'
-        m.location: '<b>{{ .Sender.Displayname }}</b> sent a location'
+        m.text: '{{"<b>{{ .Sender.Displayname }}</b>: {{ .Message }}"}}'
+        m.notice: '{{"<b>{{ .Sender.Displayname }}</b>: {{ .Message }}"}}'
+        m.emote: '{{"* <b>{{ .Sender.Displayname }}</b> {{ .Message }}"}}'
+        m.file: '{{"<b>{{ .Sender.Displayname }}</b> sent a file"}}'
+        m.image: '{{"<b>{{ .Sender.Displayname }}</b> sent an image"}}'
+        m.audio: '{{"<b>{{ .Sender.Displayname }}</b> sent an audio file"}}'
+        m.video: '{{"<b>{{ .Sender.Displayname }}</b> sent a video"}}'
+        m.location: '{{"<b>{{ .Sender.Displayname }}</b> sent a location"}}'
 
   # Logging config. See https://github.com/tulir/zeroconfig for details.
   logging:

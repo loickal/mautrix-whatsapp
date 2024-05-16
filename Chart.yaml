@@ -1,7 +1,7 @@
 apiVersion: v2
 type: application
 name: mautrix-whatsapp
-version: 0.0.1
+version: 0.0.2
 appVersion: 0.10.7
 annotations:
   artifacthub.io/images: |
